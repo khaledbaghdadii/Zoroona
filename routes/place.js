@@ -1,5 +1,5 @@
 const fs = require('fs');
-const {showReviews} = require("./review")
+//const {showReviews} = require("./review")
 
 module.exports ={
     addPlace: (req,res)=>{

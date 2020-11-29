@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { callbackify } = require('util');
 module.exports ={
     addReview: (req,res)=>{
         
@@ -28,16 +29,17 @@ module.exports ={
    })
 
 },
-    showReviews: (req,res)=>{
-        let placeId = req.body.placeId
+    showReviews: (placeId,callback)=>{
+        
         let query = `SELECT  * from review WHERE place_id=${placeId} ORDER by date`
         db.query(query,(err,result)=>{
-            if(err) res.status(500).send("There was an error rendering the page")
-            res.send(result)
+            if(err)  callback(err,null);
+            callback(null,result)
             /*
             res.render('place.ejs',{reviews:result})
             */
         })
+       
     }
 
 }
