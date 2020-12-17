@@ -10,20 +10,15 @@ module.exports = {
         console.log(err);
         return error;
       } else {
-        returnCategories({}, (err, data1) => {
-          if (err) {
-            console.log(err);
-            return error;
-          } else {
-            res.render("dashboard.ejs", {
-              manager: manager,
-              places: data,
-              categories: data1,
-            });
-          }
-        });
+        res.render("dashboard.ejs", {
+            manager: manager,
+            places: data,
+           
+          });
+
+        
       }
     });
   },
-  showDashboardPlace: (req, res) => {},
+ 
 };

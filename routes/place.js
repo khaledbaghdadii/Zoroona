@@ -88,6 +88,44 @@ module.exports ={
             callback(null,result)
         })
        
+    },
+    returnPlace: (placeId,callback)=>{
+        
+        const query= `SELECT * from place WHERE place_id=${placeId}`
+        db.query(query,(err,result)=>{
+            if(err) callback(err,null)
+            callback(null,result)
+        })
+       
+    },
+    editPlace:(req,res)=>{
+        let name= req.body.name;
+        let email = req.body.email;
+        let location = req.body.location;
+        let phoneNumber= req.body.phoneNumber;
+        let sector = req.body.sector;
+        let website = req.body.website;
+        let pricePerPerson = req.body.pricePerPerson;
+        let managerId= req.body.managerId;
+       // let categoryId= req.body.categoryId;
+        let image = req.body.image;
+        let description = req.body.description;
+        let type=req.body.type;
+        let weather=req.body.weather;
+        let orientation=req.body.orientation;
+        let hasFood=req.body.hasFood;
+        let hasSeating=req.body.hasSeating;
+        let hasAccomodation=req.body.hasAccomodation;
+        let needForReservation=req.body.needForReservation;
+        let placeId = req.body.placeId;
+        let query= `UPDATE place SET name="${name}",email="${email}",location="${location}",phone_number=${phoneNumber},sector="${sector}",website="${website}",price_per_person=${pricePerPerson},manager_id=${managerId},image="${image}",  description="${description}",type="${type}",weather="${weather}",orientation="${orientation}",has_food=${hasFood},has_seating=${hasSeating},has_accomodation=${hasAccomodation},need_for_reservation=${needForReservation}  WHERE place_id=${placeId}`
+        db.query(query,(err,result)=>{
+            if(err) res.status(500).send(err)
+            else {
+                res.redirect("/")
+            }
+        })
+        
     }
 
 }

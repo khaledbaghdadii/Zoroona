@@ -1,0 +1,123 @@
+<%- include('partials/header') %>
+  <!--form for reserve-->
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-10">
+      <div class="text-center text-secondary">
+        <h2>Edit Place</h2>
+     
+     <form action="/placeedit" method="POST">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Name of Place</label>
+        <input name="name" type="text" min="1" max="5" class="form-control" id="exampleInputEmail1" value="<%=place.name%>"  placeholder="<%=place.name%>">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Place Email</label>
+        <input  name="email" type="email" class="form-control" id="exampleInputEmail1" value="<%=place.email%>"  placeholder="<%=place.email%>">
+        
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Location</label>
+        <input  name="location" type="text" class="form-control" id="exampleInputEmail1" value="<%=place.location%>"  placeholder="<%=place.location%>">
+        
+      </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Place Phone Number</label>
+          <input name="phoneNumber" type="number" class="form-control" id="exampleInputEmail1" value="<%=place.phone_number%>"  placeholder="<%=place.phone_number%>">
+          
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Wesbite</label>
+            <input  name="website" type="text" class="form-control" id="exampleInputEmail1" value="<%=place.website%>"  placeholder="<%=place.website%>">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Price Per Person</label>
+            <input  name="pricePerPerson" type="number" class="form-control" id="exampleInputEmail1" value="<%=place.price_per_person%>"  placeholder="<%=place.price_per_person%>">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Sector</label>
+            <input  name="sector" type="text" class="form-control" id="exampleInputEmail1" value="<%=place.sector%>"  placeholder="<%=place.sector%>">
+            
+          </div>
+          <div class="form-group">
+           
+            <input  name="managerId" type="hidden" value="<%=manager.id%>"class="form-control" id="exampleInputEmail1">
+            
+          </div>
+          
+          <div class="form-group">
+           
+            <input  name="placeId" type="hidden" value="<%=place.place_id%>"class="form-control" id="exampleInputEmail1">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Image URL</label>
+            <input  name="image" type="text" class="form-control" id="exampleInputEmail1" value="<%=place.image%>"  placeholder="<%=place.image%>">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Description</label>
+            <input  name="description" type="text" class="form-control" id="exampleInputEmail1" value="<%=place.description%>"  placeholder="<%=place.description%>">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Type</label>
+            <input  name="type" type="text" class="form-control" id="exampleInputEmail1" value="<%=place.type%>"  placeholder="<%=place.type%>">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Weather</label>
+            <input  name="weather" type="text" class="form-control" id="exampleInputEmail1" value="<%=place.weather%>"  placeholder="<%=place.weather%>">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Orientation</label>
+            <input  name="orientation" type="text" class="form-control" id="exampleInputEmail1" value="<%=place.orientation%>"  placeholder="<%=place.oriention%>">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Has Food</label>
+            <br>
+            <input type="radio" id="hasFood" name="hasFood" value="1">
+                 <label for="hasFood">Yes></label><br>
+            <input type="radio" id="hasFood" name="hasFood" value="0">
+                 <label for="hasFood">No></label><br>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Has Seating</label>
+            <br>
+            <input type="radio" id="hasFood" name="hasSeating" value="1">
+                 <label for="hasSeating">Yes></label><br>
+            <input type="radio" id="hasSeating" name="hasSeating" value="0">
+                 <label for="hasFood">No></label><br>
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Has Accomodation</label>
+            <br>
+            <input type="radio" id="hasAccomodation" name="hasAccomodation" value="1">
+                 <label for="hasFood">Yes></label><br>
+            <input type="radio" id="hasFood" name="hasAccomodation" value="0">
+                 <label for="hasAccomodation">No></label><br>
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Need For Reservation</label>
+            <br>
+            <input type="radio" id="needForReservation" name="needForReservation" value="1">
+            <label for="hasFood">Yes></label><br>
+       <input type="radio" id="needForReservation" name="needForReservation" value="0">
+            <label for="needForReservation">No></label><br>
+            
+          </div>
+       
+     
+        <button class="btn btn-outline-warning">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+<!--end of reserve form-->
+
+<%- include('partials/footer') %>

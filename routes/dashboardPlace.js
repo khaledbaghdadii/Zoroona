@@ -1,6 +1,7 @@
 const {showReviews}= require("./review")
 const {returnReservations}= require("./reservation")
 const {returnPlace}= require("./placePage")
+const storage = require("node-sessionstorage");
 
 module.exports= {
     showDashboardPlace: (req,res)=>{
@@ -21,5 +22,22 @@ module.exports= {
                })
             }
         })
-    }
+    },
+    editPlacePage: (req,res)=>{
+        const placeId = req.params.placeId;
+        const manager = storage.getItem("manager")[0]
+        returnPlace(placeId,(err,result)=>{
+            if(err)  {console.log(err); return err;}
+            else {
+                res.render("editPlacePage.ejs",{place:result[0],manager:manager})
+               // res.json({place:result})
+            }
+           
+           
+        })
+
+    },
+
+
+
 }

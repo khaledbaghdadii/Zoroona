@@ -7,14 +7,15 @@ const {
   searchPlaces,
   returnSearchesPlaces,
   deletePlace,
+  editPlace
 } = require("./routes/place");
 const { showPlace, returnPlace } = require("./routes/placePage");
 const { addReview, showReviews } = require("./routes/review");
 const { auth, authLogin } = require("./helpers/auth");
 const { addPackage, showPackages, deletePackage } = require("./routes/package");
 const { addReservation } = require("./routes/reservation");
-const { showDashboard } = require("./routes/dashboard");
-const { showDashboardPlace } = require("./routes/dashboardPlace");
+const { showDashboard, } = require("./routes/dashboard");
+const { showDashboardPlace,editPlacePage } = require("./routes/dashboardPlace");
 const { pageNotFound } = require("./routes/pageNotFound");
 const storage = require("node-sessionstorage");
 
@@ -89,10 +90,12 @@ app.post("/logoutmanager", (req, res) => {
 });
 // Place
 //Delete Place
-app.delete("/place", auth, (req, res) => {
+app.delete("/placedelete", auth, (req, res) => {
   deletePlace(req, res);
 });
-
+app.post("/placeedit",auth,(req,res)=>{
+editPlace(req,res)
+})
 //Add place
 app.post("/place", auth, (req, res) => {
   if (!auth) res.redirect("/");
@@ -102,7 +105,7 @@ app.post("/place", auth, (req, res) => {
 });
 //Package
 //Delete Package
-app.delete("/package", auth, (req, res) => {
+app.delete("/packagedelete", auth, (req, res) => {
   deletePackage(req, res);
 });
 //Add Package
@@ -144,6 +147,15 @@ app.get("/dashboard", auth, (req, res) => {
 app.get("/dashboard/places/:placeId", auth, (req, res) => {
   showDashboardPlace(req, res);
 });
+
+app.get("/dashboard/places/:placeId/edit", auth, (req, res) => {
+  editPlacePage(req,res)
+});
+
+
+// app.put("/dashboard/places/:placeId/edit", auth, (req, res) => {
+// editPlace(req, res);
+// });
 
 app.get("/onlyclients", authLogin, (req, res) => {
   res.json(storage.getItem("client"));
