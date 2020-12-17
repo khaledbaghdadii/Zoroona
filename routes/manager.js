@@ -26,7 +26,7 @@ module.exports = {
         let query= `INSERT INTO manager(name,email,phone_number,sector,username,password) VALUES ('${name}','${email}',${phoneNumber},'${sector}','${username}','${password}')`
         db.query(query,(err,result)=>{
             if(err) res.status(500).send(err);
-            res.redirect("/dashboard")
+            res.redirect("/")
         })
        }
 
@@ -66,6 +66,13 @@ loginManager:(req,res)=>{
  
     })
 
+},
+    logoutManager:(req,res)=>{
+    token=""
+    manager=[]
+    storage.setItem('token',token);
+    storage.setItem('manager',manager);
+    res.redirect("/")
 }
 
 }

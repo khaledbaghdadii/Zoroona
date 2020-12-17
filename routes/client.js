@@ -30,7 +30,7 @@ module.exports ={
         let query= `INSERT INTO client(name,email,phone_number,username,password) VALUES ('${name}','${email}',${phoneNumber},'${username}','${password}')`
         db.query(query,(err,result)=>{
             if(err) res.status(500).send(err);
-            res.send("Client registered")
+            res.redirect("/")
         })
        }
 
@@ -58,6 +58,13 @@ loginClient:(req,res)=>{
  
     })
 
-}
+},
+    logoutClient:(req,res)=>{
+        token=""
+        client=[]
+        storage.setItem('client_token',token);
+        storage.setItem('client',client);
+        res.redirect("/")
+    }
 
 }

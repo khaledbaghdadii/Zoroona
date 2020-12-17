@@ -8,6 +8,15 @@ module.exports = {
             callback(null,result)
         })
        
+    },
+    returnCategories: (placeId,callback)=>{
+        
+        const query= `SELECT * from category`
+        db.query(query,(err,result)=>{
+            if(err) callback(err,null)
+            callback(null,result)
+        })
+       
     }
 
 

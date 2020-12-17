@@ -5,7 +5,10 @@ const place = require("./place")
 const storage = require('node-sessionstorage')
 module.exports={
     showPlace:(req,res)=>{
-        let client= storage.getItem("client")
+        let client= [];
+        if(storage.getItem("client")){
+            client=storage.getItem("client")
+        }
         let placeId=req.params.placeId
         let query = `SELECT * from place  WHERE place.place_id= ${placeId} `
         db.query(query,(err,result)=>{
@@ -18,11 +21,7 @@ module.exports={
                     returnPackages(placeId,(err,data1)=>{
                         if(err)  {console.log(err); return error;}
                         else {
-                            returnCategory(placeId,(err,data2)=>{
-                                if(err)  {console.log(err); return error;}
-                                else {
-                                    res.render("placePage.ejs",{place:result,reviews:data, packages:data1,category:data2})
-                                }})
+                            res.render("placePage.ejs",{place:result,reviews:data, packages:data1,clientt:client})
                         }
                     })
 

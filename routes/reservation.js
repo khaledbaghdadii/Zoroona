@@ -12,7 +12,7 @@ module.exports = {
         let query = `INSERT INTO reservation(num_of_people,start_date,end_date,client_id,place_id,package_id) VALUES(${num_of_people},'${start_date}','${end_date}',${client_id},${place_id},${package_id})`
         db.query(query,(err,result)=>{
             if(err) res.status(500).send(err);
-            res.send("You successfully reserved to this place")
+            res.redirect("/")
         })
     },
 
