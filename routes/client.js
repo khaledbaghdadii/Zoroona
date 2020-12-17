@@ -1,4 +1,13 @@
 const fs = require('fs');
+const jwt= require("jsonwebtoken")
+const storage = require('node-sessionstorage')
+
+
+
+
+
+
+
 module.exports ={
     addClient: (req,res)=>{
         
@@ -26,6 +35,28 @@ module.exports ={
        }
 
    })
+
+},
+loginClient:(req,res)=>{
+    let email= req.body.email
+    let password = req.body.password
+    let usernameQuery= `SELECT * from client WHERE email='${email}' AND password='${password}'`
+    db.query(usernameQuery,(err,result)=>{
+        if(err) res.status(500).send(err);
+        if(result.length<=0){
+            res.send("Email and or password incorrect");
+        }
+        else {
+            let payload={result:result}
+            const token = jwt.sign(payload,'thesecretkeyclient')
+            storage.setItem('client_token',token);
+            storage.setItem('client',result);
+            res.redirect("/")
+             
+        
+        }
+ 
+    })
 
 }
 

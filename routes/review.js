@@ -4,14 +4,15 @@ module.exports ={
     addReview: (req,res)=>{
         
     let placeId = req.body.placeId;
-    let clientId= req.body.clientId;
+    let name= req.body.name;
+    let email =req.body.email;
     let rating = req.body.rating;
     let feedback = req.body.feedback;
     let date = req.body.date;
 
 
 
-   let usernameQuery= `SELECT * from review WHERE place_id=${placeId} AND client_id=${clientId} AND date='${date}'`
+   let usernameQuery= `SELECT * from review WHERE place_id=${placeId} AND email='${email}' AND date='${date}'`
    db.query(usernameQuery,(err,result)=>{
        if(err) res.status(500).send(err);
        if(result.length>0){
@@ -19,10 +20,10 @@ module.exports ={
        }
        else {
 
-        let query= `INSERT INTO review(place_id,client_id,rating,feedback,date)  VALUES (${placeId},${clientId},${rating},'${feedback}','${date}')`
+        let query= `INSERT INTO review(place_id,name,email,rating,feedback,date)  VALUES (${placeId},'${name}','${email}',${rating},'${feedback}','${date}')`
         db.query(query,(err,result)=>{
             if(err) res.status(500).send(err);
-            res.send("Successfully reviewed the place")
+            res.redirect("/")
         })
        }
 

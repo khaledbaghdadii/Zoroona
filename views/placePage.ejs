@@ -1,0 +1,81 @@
+<%- include('partials/header') %>
+
+  <div class="container-fluid">
+    <div
+      class="row bgimage justify-content-center align-items-center"
+      style="height: 100vh;"
+    >
+      <div class="col-sm-10 text-center">
+      <h1 class="display-2 text-capitalize">
+         
+         <!-- <span class="text-secondary font-italic ">Find New Adventures with</span>-->
+          <span class="text-secondary text-warning "><%=place.name%></span>
+        </h1>
+        <h2 class="font-weight-light font-italic">
+          Endless Possibilities
+        </h2>
+        <form  method="POST">
+          <div class="form-group">
+            <label for="">Client id</label>
+            <input name="clientId" type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter email">
+            
+          </div>
+          <div class="form-group">
+            <label for="">Place id</label>
+            <input name="placeId" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">rating</label>
+            <input name="rating" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">feddback</label>
+            <input name="feedback" type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">date</label>
+            <input  name="date" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+          <button class="btn btn-primary">Submit</button>
+        </form>
+        <%reviews.forEach((review)=>{%>
+            <h2><%=review.feedback%></h2>
+          <%})%>
+      </div>
+    </div>
+  </div>
+  <style>
+    div.bgimage {
+      background-image: url(<%=place.image%>);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+
+    }
+    </style>
+</section>
+  </section>
+
+
+
+<br>
+<br>
+<br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br>
+
+
+<%- include('partials/footer') %>
