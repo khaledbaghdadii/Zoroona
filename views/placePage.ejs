@@ -265,7 +265,7 @@
            <div class="form-group">
              <p>Please select the package:</p>
              <%packages.forEach((package)=>{%>
-               <input type="radio" id="pack" name="packageId" value="<%=package.package_id%>">
+               <input required type="radio" id="pack" name="packageId" value="<%=package.package_id%>">
                <label for="pack"><%=package.name%></label><br>
             <% })%>
      

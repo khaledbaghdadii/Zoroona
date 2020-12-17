@@ -8,7 +8,7 @@ module.exports = {
         let query = `INSERT INTO package(price,place_id,name,description) VALUES(${price},${place_id},'${name}','${description}')`
         db.query(query,(err,result)=>{
             if(err) res.status(500).send(err);
-            res.send("Package added successfully")
+            res.redirect("/dashboard")
         })
     },
     showPackages: (req,res)=>{

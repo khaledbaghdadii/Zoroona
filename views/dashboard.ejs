@@ -68,7 +68,10 @@
           <img style="height:18rem"src="<%=place.image%>"" class="card-img-top" />
           <div class="card-body">
             <div class="card-title">
-              <a href="http://localhost:5000/dashboard/places/<%=place.place_id%>"><h3 class="text-muted"><%=place.name%></h3></a> 
+              
+              <a href="http://localhost:5000/dashboard/places/<%=place.place_id%>"><h3 class="text-muted">
+                
+                <%=place.name%></h3></a> 
               <h5 class="text-secondary text-small font-weight-light font-italic"><%=place.sector%></h5>
              
               <hr>
@@ -100,7 +103,7 @@
     
   </div>
 </section>
-<section>
+<section class="mb-2">
   <!--form for reserve-->
   <div class="row justify-content-center">
     <div class="col-lg-6 col-md-8 col-sm-10">
@@ -162,56 +165,6 @@
           <input  name="description" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
           
         </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Type</label>
-          <input  name="type" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-          
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Weather</label>
-          <input  name="weather" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-          
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Orientation</label>
-          <input  name="orientation" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-          
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Has Food</label>
-          <br>
-          <input type="radio" id="hasFood" name="hasFood" value="1">
-               <label for="hasFood">Yes></label><br>
-          <input type="radio" id="hasFood" name="hasFood" value="0">
-               <label for="hasFood">No></label><br>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Has Seating</label>
-          <br>
-          <input type="radio" id="hasFood" name="hasSeating" value="1">
-               <label for="hasSeating">Yes></label><br>
-          <input type="radio" id="hasSeating" name="hasSeating" value="0">
-               <label for="hasFood">No></label><br>
-          
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Has Accomodation</label>
-          <br>
-          <input type="radio" id="hasAccomodation" name="hasAccomodation" value="1">
-               <label for="hasFood">Yes></label><br>
-          <input type="radio" id="hasFood" name="hasAccomodation" value="0">
-               <label for="hasAccomodation">No></label><br>
-          
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Need For Reservation</label>
-          <br>
-          <input type="radio" id="needForReservation" name="needForReservation" value="1">
-          <label for="hasFood">Yes></label><br>
-     <input type="radio" id="needForReservation" name="needForReservation" value="0">
-          <label for="needForReservation">No></label><br>
-          
-        </div>
         <button class="btn btn-outline-warning">Submit Review</button>
       </form>
     </div>
@@ -219,3 +172,4 @@
 </div>
 <!--end of reserve form-->
 </section>
+<%-include('partials/footer')%>

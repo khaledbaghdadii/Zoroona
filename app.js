@@ -43,7 +43,7 @@ app.use(passport.initialize());
 
 app.post("/addplace",(req,res)=>{
   addPlace(req,res)
-})
+});
 
 
 
