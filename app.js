@@ -90,7 +90,7 @@ app.post("/logoutmanager", (req, res) => {
 });
 // Place
 //Delete Place
-app.delete("/placedelete", auth, (req, res) => {
+app.post("/placedelete", auth, (req, res) => {
   deletePlace(req, res);
 });
 app.post("/placeedit",auth,(req,res)=>{
@@ -105,7 +105,7 @@ app.post("/place", auth, (req, res) => {
 });
 //Package
 //Delete Package
-app.delete("/packagedelete", auth, (req, res) => {
+app.post("/packagedelete", auth, (req, res) => {
   deletePackage(req, res);
 });
 //Add Package
@@ -148,7 +148,7 @@ app.get("/dashboard/places/:placeId", auth, (req, res) => {
   showDashboardPlace(req, res);
 });
 
-app.get("/dashboard/places/:placeId/edit", auth, (req, res) => {
+app.post("/dashboard/places/:placeId/edit", auth, (req, res) => {
   editPlacePage(req,res)
 });
 

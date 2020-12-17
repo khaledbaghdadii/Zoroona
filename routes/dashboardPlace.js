@@ -1,6 +1,7 @@
 const {showReviews}= require("./review")
 const {returnReservations}= require("./reservation")
 const {returnPlace}= require("./placePage")
+const {returnPackages}= require("./package")
 const storage = require("node-sessionstorage");
 
 module.exports= {
@@ -15,7 +16,15 @@ module.exports= {
                        returnPlace(placeId,(err,place)=>{
                         if(err) {console.log(err);return error;}
                         else {
-                            res.json({reviews:reviews, reservations:reservations,place:place})
+                            returnPackages(placeId,(err,package)=>{
+                                if(err) {console.log(err);return error;}
+                                else {
+                                    
+                                  res.render("placeAfterDash.ejs",{reviews:reviews, reservations:reservations,place:place,packages:package})
+                                   //res.json({reviews:reviews, reservations:reservations,place:place,packages:package})
+                                }
+                               })
+                           
                         }
                        })
                    }
