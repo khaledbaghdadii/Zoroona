@@ -29,12 +29,7 @@
         <li class="nav-item active">
           <a class="nav-link text-white" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#" class="nav-link text-light text-uppercase font-weight-bold px-3">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#">Pricing</a>
-        </li>
+       
         
         
       </ul>
@@ -68,10 +63,7 @@
           <img style="height:18rem"src="<%=place.image%>"" class="card-img-top" />
           <div class="card-body">
             <div class="card-title">
-              
-              <a href="http://localhost:5000/dashboard/places/<%=place.place_id%>"><h3 class="text-muted">
-                
-                <%=place.name%></h3></a> 
+              <a href="http://localhost:5000/dashboard/places/<%=place.place_id%>"><h3 class="text-muted"><%=place.name%></h3></a> 
               <h5 class="text-secondary text-small font-weight-light font-italic"><%=place.sector%></h5>
              
               <hr>
@@ -103,7 +95,7 @@
     
   </div>
 </section>
-<section class="mb-2">
+<section>
   <!--form for reserve-->
   <div class="row justify-content-center">
     <div class="col-lg-6 col-md-8 col-sm-10">
@@ -112,37 +104,41 @@
      
      <form action="/place" method="POST">
       <div class="form-group">
-        <label for="exampleInputEmail1">Name of Place</label>
-        <input name="name" type="text" min="1" max="5" class="form-control" id="exampleInputEmail1" placeholder="Enter the name of the place">
+        <label  for="exampleInputEmail1">Name of Place</label>
+        <input required name="name" type="text" min="1" max="5" class="form-control" id="exampleInputEmail1" placeholder="Enter the name of the place">
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Place Email</label>
-        <input  name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+        <input required  name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
         
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Location</label>
-        <input  name="location" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+        <input required  name="location" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter location">
         
       </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Place Phone Number</label>
-          <input name="phoneNumber" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter Rating">
+          <input required name="phoneNumber" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter phone number">
           
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Wesbite</label>
-          <input  name="website" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+          <input required  name="website" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter website">
           
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Price Per Person</label>
-          <input  name="pricePerPerson" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+          <input required  name="pricePerPerson" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter price per person">
           
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Sector</label>
-          <input  name="sector" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+          <br>
+          <input  required type="radio" id="hasFood" name="sector" value="public">
+               <label for="hasSeating">Public</label><br>
+          <input required type="radio" id="hasSeating" name="sector" value="private">
+               <label for="hasFood">Private</label><br>
           
         </div>
         <div class="form-group">
@@ -157,19 +153,70 @@
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Image URL</label>
-          <input  name="image" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+          <input required  name="image" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter image URL">
           
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Description</label>
-          <input  name="description" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+          <input required name="description" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter description">
           
         </div>
-        <button class="btn btn-outline-warning">Submit Review</button>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Type</label>
+          <input required  name="type" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter type">
+          
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Weather</label>
+          <input required  name="weather" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter weather">
+          
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Orientation</label>
+          <input required name="orientation" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter orientation">
+          
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Has Food</label>
+          <br>
+          <input required type="radio" id="hasFood" name="hasFood" value="1">
+               <label for="hasFood">Yes</label><br>
+          <input type="radio" id="hasFood" name="hasFood" value="0">
+               <label for="hasFood">No</label><br>
+        </div>
+        <div required class="form-group">
+          <label for="exampleInputEmail1">Has Seating</label>
+          <br>
+          <input required type="radio" id="hasFood" name="hasSeating" value="1">
+               <label for="hasSeating">Yes</label><br>
+          <input required type="radio" id="hasSeating" name="hasSeating" value="0">
+               <label for="hasFood">No</label><br>
+          
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Has Accomodation</label>
+          <br>
+          
+          <input required type="radio" id="hasAccomodation" name="hasAccomodation" value="1">
+               <label for="hasFood">Yes</label><br>
+          <input required type="radio" id="hasFood" name="hasAccomodation" value="0">
+               <label for="hasAccomodation">No</label><br>
+          
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Need For Reservation</label>
+          <br>
+          <input required type="radio" id="needForReservation" name="needForReservation" value="1">
+          <label for="hasFood">Yes</label><br>
+     <input type="radio" id="needForReservation" name="needForReservation" value="0">
+          <label for="needForReservation">No</label><br>
+          
+        </div>
+        <button class="btn btn-outline-warning">Add place</button>
       </form>
     </div>
   </div>
 </div>
 <!--end of reserve form-->
 </section>
-<%-include('partials/footer')%>
+<%- include('partials/footer') %>

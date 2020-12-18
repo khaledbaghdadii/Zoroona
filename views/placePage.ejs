@@ -32,12 +32,7 @@
         <li class="nav-item active">
           <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#" class="nav-link text-light text-uppercase font-weight-bold px-3">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#">Pricing</a>
-        </li>
+        
         <% if(clientt.length==0){ %>
           <li class="nav-item">
             <a class="nav-link text-white" href="/loginclient">Log In</a>
@@ -187,13 +182,13 @@
        
         <form action="/addreview" method="POST">
           <div class="form-group">
-            <label for="">Client id</label>
-            <input name="clientId" type="text" class="form-control" id=""  placeholder="Enter Your Name">
+            <label for="">Name</label>
+            <input required name="name" type="text" class="form-control" id=""  placeholder="Enter Your Name">
             
           </div>
           <div class="form-group">
             <label for="">Email</label>
-            <input name="clientId" type="text" class="form-control" id=""  placeholder="Enter Your Email">
+            <input required name="clientId" type="text" class="form-control" id=""  placeholder="Enter Your Email">
             
           </div>
           <div class="form-group">
@@ -203,16 +198,16 @@
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Rating</label>
-            <input name="rating" type="number" min="1" max="5" class="form-control" id="exampleInputEmail1" placeholder="Enter Rating">
+            <input required name="rating" type="number" min="1" max="5" class="form-control" id="exampleInputEmail1" placeholder="Enter Rating">
             
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Feedback Message</label>
-            <input name="feedback" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Feedback Message">
+            <input required name="feedback" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Feedback Message">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Date</label>
-            <input  name="date" type="date" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            <input required name="date" type="date" class="form-control" id="exampleInputEmail1" placeholder="Enter date">
             
           </div>
           
@@ -225,10 +220,10 @@
   
   <div id="reserveForm">
     <% if(clientt.length==0){ %>
-      <h1>You need to be logged in to reserve a place</h1>
+      <h1 class="mx-auto text-center">You need to be logged in to reserve a place</h1>
     <% } else{ %>  
       <!--form for review-->
-      <div class="row justify-content-center">
+      <div id="reserveForm" class="row justify-content-center">
        <div class="col-lg-6 col-md-8 col-sm-10">
          <div class="text-center text-secondary">
            <h2>Reserve your spot</h2>
@@ -248,29 +243,29 @@
            
            <div class="form-group">
              <label for="exampleInputEmail1">Number of People</label>
-             <input name="numOfPeople" type="number" min="1" max="5" class="form-control" id="exampleInputEmail1" placeholder="Enter Rating">
+             <input required name="numOfPeople" type="number" min="1" max="5" class="form-control" id="exampleInputEmail1" placeholder="Enter number of people">
              
            </div>
            
            <div class="form-group">
              <label for="exampleInputEmail1">Start Date</label>
-             <input  name="startDate" type="date" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+             <input  required name="startDate" type="date" class="form-control" id="exampleInputEmail1" placeholder="Enter start date">
              
            </div>
            <div class="form-group">
              <label for="exampleInputEmail1">End Date</label>
-             <input  name="endDate" type="date" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+             <input required name="endDate" type="date" class="form-control" id="exampleInputEmail1" placeholder="Enter end date">
              
            </div>
            <div class="form-group">
              <p>Please select the package:</p>
              <%packages.forEach((package)=>{%>
-               <input required type="radio" id="pack" name="packageId" value="<%=package.package_id%>">
+               <input required  type="radio" id="pack" name="packageId" value="<%=package.package_id%>">
                <label for="pack"><%=package.name%></label><br>
             <% })%>
      
            </div>
-           <button class="btn btn-outline-warning">Submit Review</button>
+           <button class="btn btn-outline-warning">Reserve Now</button>
          </form>
        </div>
      </div>

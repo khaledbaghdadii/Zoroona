@@ -5,7 +5,7 @@ module.exports={
     auth:  (req,res,next)=>{
        
         jwt.verify(storage.getItem('token'),"thesecretkey",(err,user)=>{
-            if(err) return res.sendStatus(403)
+            if(err) return res.redirect("loginmanager")
             req.user=user;
             next()
         })
@@ -14,7 +14,7 @@ module.exports={
     },
     authLogin: (req,res,next)=>{
         jwt.verify(storage.getItem('client_token'),"thesecretkeyclient",(err,user)=>{
-            if(err) return res.sendStatus(403)
+            if(err) return res.redirect("/loginclient")
             req.user=user;
             next()
         })

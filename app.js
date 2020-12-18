@@ -138,7 +138,7 @@ app.route("/packages/:placeId").get((req, res) => {
 
 //Not removed
 app.get("/dashboard", auth, (req, res) => {
-  if (!auth) res.redirect("/");
+  if (!auth) res.redirect("/loginmanager");
   else {
     showDashboard(req, res);
   }

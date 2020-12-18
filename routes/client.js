@@ -44,7 +44,7 @@ loginClient:(req,res)=>{
     db.query(usernameQuery,(err,result)=>{
         if(err) res.status(500).send(err);
         if(result.length<=0){
-            res.send("Email and or password incorrect");
+            res.redirect("/loginclient");
         }
         else {
             let payload={result:result}

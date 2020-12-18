@@ -26,16 +26,13 @@
     </button>
     <div class="collapse navbar-collapse" id="nav">
       <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#" class="nav-link text-light text-uppercase font-weight-bold px-3">Features</a>
-        </li>
+            <a class="nav-link text-white" href="/">Home</a>
+          </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">Pricing</a>
-        </li>
-       
+            <a class="nav-link text-white" href="/dashboard">Dashboard</a>
+          </li>
+        </ul>
         
       
     </div>
@@ -165,11 +162,11 @@
        <form action="/package" method="POST">
         <div class="form-group">
           <label for="exampleInputEmail1">Name of Package</label>
-          <input name="name" type="text"  class="form-control" id="exampleInputEmail1" placeholder="Enter the name of the package">
+          <input required name="name" type="text"  class="form-control" id="exampleInputEmail1" placeholder="Enter name">
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Package Price</label>
-            <input name="price" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter Rating">
+            <input required name="price" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter price">
             
           </div>
           <div class="form-group">
@@ -179,7 +176,7 @@
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Description</label>
-            <input name="description" type="text"  class="form-control" id="exampleInputEmail1" placeholder="Enter the name of the package">
+            <input required name="description" type="text"  class="form-control" id="exampleInputEmail1" placeholder="Enter description">
           </div>
           
           

@@ -1,6 +1,6 @@
 module.exports={
     pageNotFound:(req,res)=>{
 
-        res.redirect("/")
+        res.render("pageNotFound.ejs")
     }
 }
