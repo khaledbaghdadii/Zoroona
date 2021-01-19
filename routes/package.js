@@ -30,7 +30,7 @@ module.exports = {
     },
     deletePackage:(req,res)=>{
         package_id= req.body.packageId
-        let query = `DELETE FROM package WHERE place_id=${place_id}`
+        let query = `DELETE FROM package WHERE package_id=${package_id}`
         db.query(query,(err,result)=>{
             if(err) res.status(500).send(err);
             res.redirect("/dashboard")
